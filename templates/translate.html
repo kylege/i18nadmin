@@ -1,0 +1,69 @@
+
+
+<?php include 'header.html'; ?>
+
+ <div class="container-fluid">
+
+        
+<?php
+
+if(empty($need_translate_item)){
+
+?>
+	
+ 	<div id="all_langs_list">  
+ 		<?php foreach ($lang_arr as $key => $value) {
+ 			?>
+ 			<a href="./translate.php?lang=<?php echo $key; ?>"><?php echo $value; ?></a> 
+ 			<?php	
+ 		} ?>
+ 	</div>
+
+<?php
+	echo '没有需要翻译的条目';
+}else{
+
+$cur_key = $need_translate_item['key'];
+$cur_content = isset($need_translate_item[$cur_lang]) ? $need_translate_item[$cur_lang] : '';
+$cur_content_cs = $need_translate_item['cs'];
+?>
+		<div id="all_langs_list">  
+	 		<?php foreach ($lang_arr as $key => $value) {
+	 			?>
+	 			<a href="./translate.php?lang=<?php echo $key; ?>&key=<?php echo $cur_key; ?>"><?php echo $value; ?></a> 
+	 			<?php	
+	 		} ?>
+	 	</div>
+
+        <form class="form-add" id="add-form">
+        <input type="hidden" value="<?php echo $cur_key; ?>" name="cur_key" id="cur_key">
+        <input type="hidden" value="<?php echo $cur_lang; ?>" name="cur_key" id="cur_lang">
+        <label>语言KEY值:</label> <label class="label label-info" style="font-size:14px; padding:2px;"><?php echo $cur_key; ?></label> <br>
+
+        <label>语言中文内容:</label> 
+
+        <p id="translate-cs-content"><?php echo $cur_content_cs; ?></p>
+
+    </br>
+        <label><?php echo $cur_lang_str; ?>翻译值:</label>
+        
+        <textarea rows="3" cols="40" name="lang_content" id="add-content"><?php echo $cur_content; ?></textarea> </br>
+        
+        <button type="button" class="btn" id="add-btn" onclick="sendAlterLang(); return false;">提交</button>
+
+      </form>
+      <a href="./translate.php?lang=<?php echo $cur_lang; ?>">下一条</a>
+<?php
+}
+?>          
+        
+    </div>
+
+    <script type="text/javascript" src="./static/js/jquery-1.8.3.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <script src="./static/js/main.js"></script>
+    <script type="text/javascript">
+       
+    </script>
+</body>
+</html>

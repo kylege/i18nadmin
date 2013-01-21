@@ -1,0 +1,41 @@
+
+<?php include 'header.html'; ?>
+
+
+    <div class="container-fluid">
+
+      <label class="label label-info" style="font-size:16px; padding:10px;">添加之前请先搜索一下数据库里面是否已经有类似的记录，请不要添加垃圾记录。</label> </br></br>
+
+
+        <label>添加语言内容</label>
+        <form class="form-add" id="add-form">
+           <textarea rows="3" cols="40" name="lang_content" id="add-content"></textarea>
+
+        <label>标签</label>
+        <?php
+            foreach ($tags as $key => $value) {
+              ?>
+              <label class="checkbox inline">
+                  <input data-key="<?php  echo $key; ?>" type="checkbox" id="ckb-<?php  echo $key; ?>" value="<?php  echo $key; ?>"> <?php echo $value; ?> 
+                  </label>
+
+              <?php
+            }
+            ?>
+          </br> </br> </br>
+            <button type="button" class="btn" id="add-btn" onclick="sendAddLang();return false;">提交</button>
+
+      </form>
+        
+          
+        
+    </div>
+
+    <script type="text/javascript" src="./static/js/jquery-1.8.3.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <script src="./static/js/main.js"></script>
+    <script type="text/javascript">
+       
+    </script>
+</body>
+</html>

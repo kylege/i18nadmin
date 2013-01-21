@@ -1,0 +1,70 @@
+
+<?php include 'header.html'; ?>
+
+
+    <div class="container-fluid">
+        <form class="form-search" id="search-form">
+            <input  
+<?php if(isset($_GET['s']) ){ ?>  value="<?php echo $_GET['s']; ?>" <?php }?>
+             title="" type="text" class="input-medium search-query" id="search-input" placeholder="输入KEY/内容/标签" onkeydown="if(event.keyCode==13) {window.location = './search.php?s='+$('#search-input').val();return false;}">
+            <?php if(isset($_GET['s']) ){
+              ?>
+              <a href="add.php" style="margin-left:10px;">+</a>
+              <?php
+            }
+            ?>
+        </form>
+
+        <table class="table table-hover" id="rooms-table">
+        <thead><tr><th>序号</th><th>语言key值</th><th>语言内容</th><th>标签</th><th>翻译</th></tr></thead>
+        <tbody>
+                <?php
+                  foreach ($langs as $key => $value) {
+                    $la_id = $value['la_id'];
+                    $keystr = $value['key'];
+                    $content = $value['cs'];
+                    $tagstring = '';
+                    foreach ($value['tags'] as $t => $v) {
+                      $tagstring = $tagstring . $tags[$v] . ' | ';
+                    }
+                  ?>
+                            <tr><td><?php echo $la_id;?></td>
+                            <td><?php echo $keystr ?></td> 
+                            <td><?php echo StringHelper::subStr($content , 50, '....');?></td> 
+                            <td><?php echo $tagstring?> <a href="javascript:;" onclick="alterTagsOnclick('<?php echo $keystr ?>');">+</a></td><td><a href="./translate.php?lang=en&key=<?php echo $keystr;?>">↗</a></td> </tr>
+                  <?php
+                }
+                ?>
+        </tbody>
+    </table>
+    </div>
+
+    <div id="alert-model-dom" class="modal hide fade">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="alert-title">修改标签</h3>
+        </div>
+        <div class="modal-body">
+          <?php
+            foreach ($tags as $key => $value) {
+              ?>
+              <label class="checkbox inline">
+                  <input data-key="<?php  echo $key; ?>" type="checkbox" id="ckb-<?php  echo $key; ?>" value="<?php  echo $key; ?>"> <?php echo $value; ?> 
+              </label>
+              <?php
+            }
+            ?>
+        </div>
+        <div class="modal-footer">
+            <a href="javascript:;" id="model-btn" class="btn">确定</a>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./static/js/jquery-1.8.3.min.js"></script>
+    <script src="./static/js/bootstrap.min.js"></script>
+    <script src="./static/js/main.js"></script>
+    <script type="text/javascript">
+       
+    </script>
+</body>
+</html>

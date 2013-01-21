@@ -1,0 +1,38 @@
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+	font-size: 12px;
+}
+.row-fluid {
+	width: 800px;
+	margin: 0 auto;
+}
+.container-fluid {
+	padding: 0px 200px 0 160px;
+	min-height: 400px;
+	width: 800px;
+	margin:0 auto;
+}
+#search-input{
+	width: 300px;
+}
+.table th, .table td {
+	padding: 4px;
+}
+#add-form textarea {
+	width: 450px;
+	
+}
+#translate-cs-content {
+	padding: 1em;
+	border: 1px dashed #2F6FAB;
+	color: black;
+	background-color: #F9F9F9;
+}
+#all_langs_list{
+	margin-bottom: 20px;
+}
+#all_langs_list a{
+	font-size: 14px;
+	margin-left: 20px;
+}

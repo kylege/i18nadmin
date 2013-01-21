@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+            <la_01>Email or phone</la_01>
+            <la_02>Password</la_02>
+            <la_03>Sign In</la_03>
+            <la_04>Remember Me</la_04>
+            <la_05>Forgot Password</la_05>
+            <la_06>Join Us (be Moxian MO-Pal)</la_06>
+            <la_07>Email</la_07>
+            <la_08>First Name</la_08>
+            <la_09>Last Name</la_09>
+            <la_10>New Password</la_10>
+            <la_11>Confirm password</la_11>
+            <la_12>Gender</la_12>
+            <la_13>Male</la_13>
+            <la_14>Female</la_14>
+            <la_15>Birthday</la_15>
+            <la_16>Year Month Day</la_16>
+</root>
