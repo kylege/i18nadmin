@@ -6,12 +6,12 @@ class ExportLang {
 
 	public $file_header_prefix = array(
 		'php' =>"<?php return array( \r\n",
-		'js'  =>"var MX_LANG={ \r\n",
+		'js'  =>"MX_LANG = $.extend(window.MX_LANG || {},{ \r\n",
 		);
 
 	public $file_footer_prefix = array(
 		'php' =>"\r\n ); ",
-		'js'  =>"\r\n }; "
+		'js'  =>"\r\n }); "
 		);
 
 	public $key_prefix = array(
