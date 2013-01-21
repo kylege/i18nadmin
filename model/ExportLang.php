@@ -47,8 +47,9 @@ class ExportLang {
 		for($i=0; $i<$all_count; $i++){
 
 			$value = $lang_items[$i];
-			$item_key = $value['key'];
+			$item_key = trim($value['key']);
 			$item_content = isset($value[$lang]) ? $value[$lang] : '';
+			$item_content = trim($item_content);
 
 			$line = $this->key_prefix[$code_type] . $item_key . $this->value_prefix[$code_type] . $item_content . $this->line_end[$code_type];
 			
