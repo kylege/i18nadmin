@@ -20,12 +20,12 @@ class ExportLang {
 		);
 
 	public $value_prefix = array(
-		'php' => "'=>'",
+		'php' => "'=>\"",
 		'js'  => "':'",
 		);
 
 	public $line_end = array(
-		'php' =>"',",
+		'php' =>"\",",
 		'js'  =>"',",
 		);
 
@@ -50,7 +50,7 @@ class ExportLang {
 			$item_key = trim($value['key']);
 			$item_content = isset($value[$lang]) ? $value[$lang] : '';
 			$item_content = trim($item_content);
-			$item_content = addslashes($item_content);
+			$item_content = str_replace('"', '\"', $item_content);
 
 			$line = $this->key_prefix[$code_type] . $item_key . $this->value_prefix[$code_type] . $item_content . $this->line_end[$code_type];
 			
